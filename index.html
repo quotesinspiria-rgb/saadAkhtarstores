@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The General Catalog — Handmade & Curated Goods</title>
+<meta name="description" content="Clothing, crafts, and gadgets, catalogued and shipped.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="/" class="wordmark">The General Catalog</a>
+    <nav class="cat-nav">
+      <button class="cat-btn active" data-filter="all">All</button>
+      <button class="cat-btn" data-filter="clothing">Clothing</button>
+      <button class="cat-btn" data-filter="craft">Crafts</button>
+      <button class="cat-btn" data-filter="gadget">Gadgets</button>
+    </nav>
+    <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
+      Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <p class="eyebrow">Catalog No. 001 — Est. 2026</p>
+  <h1>Goods worth<br>keeping a record of.</h1>
+  <p class="hero-sub">Every item below is stocked, stitched, or soldered in small runs. No. of items left is the number in stock — once it's stamped SOLD, it's gone.</p>
+</section>
+
+<main class="wrap">
+  <div class="grid" id="productGrid"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>&copy; 2026 The General Catalog. Replace this with your own store name.</p>
+    <p class="footer-note">Built free, hosted free — see README.md for setup.</p>
+  </div>
+</footer>
+
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-head">
+    <h2>Your order</h2>
+    <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total-row">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">Rs 0</span>
+    </div>
+    <p class="cart-shipping-note">Cash on Delivery — pay when your order arrives.</p>
+
+    <div class="order-form" id="orderForm">
+      <label class="form-label" for="custName">Full name</label>
+      <input class="form-input" id="custName" type="text" placeholder="Your name" required>
+
+      <label class="form-label" for="custPhone">Phone number</label>
+      <input class="form-input" id="custPhone" type="tel" placeholder="03XX XXXXXXX" required>
+
+      <label class="form-label" for="custAddress">Delivery address</label>
+      <textarea class="form-input" id="custAddress" placeholder="House no, street, area, city" rows="3" required></textarea>
+    </div>
+
+    <button class="checkout-btn" id="checkoutBtn">Place order on WhatsApp</button>
+    <p class="checkout-error" id="checkoutError" hidden></p>
+  </div>
+</aside>
+
+<!-- Product detail template -->
+<template id="cardTemplate">
+  <article class="card">
+    <div class="card-swatch">
+      <span class="stamp-badge"><span class="stamp-price"></span></span>
+      <div class="sold-flag" hidden>Sold</div>
+    </div>
+    <div class="card-body">
+      <p class="card-eyebrow"></p>
+      <h3 class="card-title"></h3>
+      <p class="card-stock"></p>
+      <button class="add-btn">Add to order</button>
+    </div>
+  </article>
+</template>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
