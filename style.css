@@ -485,3 +485,35 @@ a { color: inherit; }
   .cat-nav { display: none; }
   .header-row { justify-content: space-between; }
 }
+.thumb-row {
+  display: flex;
+  gap: 6px;
+  margin: 2px 0 6px;
+}
+
+.thumb {
+  width: 34px;
+  height: 34px;
+  background-size: cover;
+  background-position: center;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.thumb:hover {
+  opacity: 0.9;
+}
+
+.thumb.active {
+  opacity: 1;
+  border-color: var(--stamp);
+}
+
+.card-desc {
+  font-size: 13px;
+  color: #5A5546;
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
