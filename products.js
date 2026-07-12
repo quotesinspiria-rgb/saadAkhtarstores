@@ -1,11 +1,8 @@
 /**
  * PRODUCT CATALOG
  * ----------------
- * Edit this list to add your real products.
- *
- * priceCents is the price in paisa (Rs 1 = 100 paisa) so amounts stay exact —
- * e.g. Rs 1,500 is written as 150000. priceDisplay is just what's shown on
- * the page; keep it matching priceCents.
+ * image: filename of the photo inside the "images" folder (e.g. "images/janan-perfum.jpg").
+ * Upload matching photos to the images folder in your repo with these exact names.
  */
 
 const PRODUCTS = [
@@ -15,7 +12,8 @@ const PRODUCTS = [
     category: "perfume",
     priceCents: 150000,
     priceDisplay: "Rs 1,500",
-    stock: 15
+    stock: 15,
+    image: "images/janan-perfum.jpg"
   },
   {
     id: "gold-steel-watch",
@@ -23,7 +21,8 @@ const PRODUCTS = [
     category: "watches",
     priceCents: 200000,
     priceDisplay: "Rs 2,000",
-    stock: 20
+    stock: 20,
+    image: "images/gold-steel-watch.jpg"
   },
   {
     id: "halawa-wax",
@@ -31,6 +30,7 @@ const PRODUCTS = [
     category: "wax",
     priceCents: 100000,
     priceDisplay: "Rs 1,000",
-    stock: 10
+    stock: 10,
+    image: "images/halawa-wax.jpg"
   }
 ];
