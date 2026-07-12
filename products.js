@@ -1,10 +1,3 @@
-/**
- * PRODUCT CATALOG
- * ----------------
- * image: filename of the photo inside the "images" folder (e.g. "images/janan-perfum.jpg").
- * Upload matching photos to the images folder in your repo with these exact names.
- */
-
 const PRODUCTS = [
   {
     id: "janan-perfum",
@@ -13,7 +6,7 @@ const PRODUCTS = [
     priceCents: 150000,
     priceDisplay: "Rs 1,500",
     stock: 15,
-    image: "images/janan-perfum.jpg"
+    image: "janan-perfum.webp"
   },
   {
     id: "gold-steel-watch",
@@ -22,7 +15,7 @@ const PRODUCTS = [
     priceCents: 200000,
     priceDisplay: "Rs 2,000",
     stock: 20,
-    image: "images/gold-steel-watch.jpg"
+    image: "gold-steel-watch.webp"
   },
   {
     id: "halawa-wax",
