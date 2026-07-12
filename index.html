@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The General Catalog — Handmade & Curated Goods</title>
-<meta name="description" content="Clothing, crafts, and gadgets, catalogued and shipped.">
+<meta name="description" content="Perfume, watches, and wax products — free home delivery, Cash on Delivery.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -17,8 +17,8 @@
     <nav class="cat-nav">
       <button class="cat-btn active" data-filter="all">All</button>
       <button class="cat-btn" data-filter="perfume">Perfume</button>
-<button class="cat-btn" data-filter="watches">Watches</button>
-<button class="cat-btn" data-filter="wax">Wax</button>
+      <button class="cat-btn" data-filter="watches">Watches</button>
+      <button class="cat-btn" data-filter="wax">Wax</button>
     </nav>
     <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
       Cart <span class="cart-count" id="cartCount">0</span>
@@ -29,7 +29,8 @@
 <section class="hero wrap">
   <p class="eyebrow">Catalog No. 001 — Est. 2026</p>
   <h1>Goods worth<br>keeping a record of.</h1>
-  <p class="hero-sub">Free Home Delivery & Cash on Delivery on every order. Every item below is stocked in limited quantity — once it's stamped SOLD, it's gone.</p></section>
+  <p class="hero-sub">Free Home Delivery & Cash on Delivery on every order. Every item below is stocked in limited quantity — once it's stamped SOLD, it's gone.</p>
+</section>
 
 <main class="wrap">
   <div class="grid" id="productGrid"></div>
@@ -63,34 +64,3 @@
 
       <label class="form-label" for="custPhone">Phone number</label>
       <input class="form-input" id="custPhone" type="tel" placeholder="03XX XXXXXXX" required>
-
-      <label class="form-label" for="custAddress">Delivery address</label>
-      <textarea class="form-input" id="custAddress" placeholder="House no, street, area, city" rows="3" required></textarea>
-    </div>
-
-    <button class="checkout-btn" id="checkoutBtn">Place order on WhatsApp</button>
-    <p class="checkout-error" id="checkoutError" hidden></p>
-  </div>
-</aside>
-
-<!-- Product detail template -->
-<template id="cardTemplate">
-  <article class="card">
-    <div class="card-swatch">
-      <span class="stamp-badge"><span class="stamp-price"></span></span>
-      <div class="sold-flag" hidden>Sold</div>
-    </div>
-    <div class="card-body">
-      <p class="card-eyebrow"></p>
-      <h3 class="card-title"></h3>
-      <p class="card-stock"></p>
-      <button class="add-btn">Add to order</button>
-    </div>
-  </article>
-</template>
-
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script src="app.js"></script>
-</body>
-</html>
