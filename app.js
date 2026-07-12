@@ -24,6 +24,13 @@ function renderGrid() {
     node.querySelector(".card-eyebrow").textContent = product.category;
     node.querySelector(".card-title").textContent = product.title;
 
+    const swatch = node.querySelector(".card-swatch");
+    if (product.image) {
+      swatch.style.backgroundImage = `url("${product.image}")`;
+      swatch.style.backgroundSize = "cover";
+      swatch.style.backgroundPosition = "center";
+    }
+
     const soldOut = product.stock <= 0;
     node.querySelector(".sold-flag").hidden = !soldOut;
     node.querySelector(".card-stock").textContent = soldOut
@@ -62,7 +69,7 @@ function renderCart() {
     const line = document.createElement("div");
     line.className = "cart-line";
     line.innerHTML = `
-      <div class="cart-line-swatch"></div>
+      <div class="cart-line-swatch" style="${product.image ? `background-image:url('${product.image}');background-size:cover;background-position:center;` : ""}"></div>
       <div class="cart-line-info">
         <span class="cart-line-title">${product.title}</span>
         <span class="cart-line-price">${money(product.priceCents)} each</span>
