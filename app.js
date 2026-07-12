@@ -23,12 +23,32 @@ function renderGrid() {
     node.querySelector(".stamp-price").textContent = product.priceDisplay;
     node.querySelector(".card-eyebrow").textContent = product.category;
     node.querySelector(".card-title").textContent = product.title;
+    node.querySelector(".card-desc").textContent = product.description || "";
 
     const swatch = node.querySelector(".card-swatch");
-    if (product.image) {
-      swatch.style.backgroundImage = `url("${product.image}")`;
+    const images = product.images && product.images.length ? product.images : (product.image ? [product.image] : []);
+
+    function setMainImage(src) {
+      swatch.style.backgroundImage = `url("${src}")`;
       swatch.style.backgroundSize = "cover";
       swatch.style.backgroundPosition = "center";
+    }
+
+    if (images.length) setMainImage(images[0]);
+
+    const thumbRow = node.querySelector(".thumb-row");
+    if (images.length > 1) {
+      images.forEach((src, i) => {
+        const thumb = document.createElement("div");
+        thumb.className = "thumb" + (i === 0 ? " active" : "");
+        thumb.style.backgroundImage = `url("${src}")`;
+        thumb.addEventListener("click", () => {
+          setMainImage(src);
+          thumbRow.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
+          thumb.classList.add("active");
+        });
+        thumbRow.appendChild(thumb);
+      });
     }
 
     const soldOut = product.stock <= 0;
@@ -69,7 +89,7 @@ function renderCart() {
     const line = document.createElement("div");
     line.className = "cart-line";
     line.innerHTML = `
-      <div class="cart-line-swatch" style="${product.image ? `background-image:url('${product.image}');background-size:cover;background-position:center;` : ""}"></div>
+      <div class="cart-line-swatch" style="${(product.images && product.images[0]) ? `background-image:url('${product.images[0]}');background-size:cover;background-position:center;` : ""}"></div>
       <div class="cart-line-info">
         <span class="cart-line-title">${product.title}</span>
         <span class="cart-line-price">${money(product.priceCents)} each</span>
