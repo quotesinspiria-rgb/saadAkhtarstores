@@ -27,6 +27,6 @@ const PRODUCTS = [
     priceDisplay: "Rs 1,000",
     stock: 10,
     description: "100% natural and organic hair removal wax with a soft, smooth consistency. Gentle on skin, premium quality, 225g pack.",
-    images: ["images/halawa-wax.jpg", "images/halawa-wax-2.jpg", "images/halawa-wax-3.jpg"]
+    images: ["images/halawa-wax.jpg", "halawa-wax-2.jpg", "halawa-wax-3.jpg"]
   }
 ];
