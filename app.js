@@ -68,7 +68,18 @@ function renderGrid() {
         openCart();
       });
     }
+node.querySelector(".card").addEventListener("click", (e)=>{
 
+  if(e.target.classList.contains("add-btn")){
+    return;
+  }
+
+  window.location.href = "product.html?id=" + product.id;
+
+});
+
+
+grid.appendChild(node);
     grid.appendChild(node);
   });
 }
