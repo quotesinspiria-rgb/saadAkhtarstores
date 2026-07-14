@@ -517,3 +517,313 @@ a { color: inherit; }
   line-height: 1.5;
   margin: 0 0 8px;
 }
+/* ================================
+   MARKAZ STYLE UPGRADE
+================================ */
+
+
+/* Top Announcement Bar */
+
+.top-bar{
+    background:#1f6f43;
+    color:white;
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    padding:10px;
+    font-size:13px;
+    font-family:'Inter',sans-serif;
+}
+
+
+
+/* New Header */
+
+.main-header{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:18px 28px;
+    background:white;
+}
+
+
+.main-header .wordmark{
+    color:#1f6f43;
+    font-size:28px;
+}
+
+
+/* Search */
+
+.search-box{
+    flex:1;
+    display:flex;
+}
+
+
+.search-box input{
+    width:100%;
+    padding:14px 20px;
+    border:1px solid #ddd;
+    border-radius:30px 0 0 30px;
+    font-size:15px;
+}
+
+
+.search-box button{
+    border:none;
+    background:#1f6f43;
+    color:white;
+    padding:0 25px;
+    border-radius:0 30px 30px 0;
+    cursor:pointer;
+}
+
+
+
+/* Header links */
+
+.header-links{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    font-size:14px;
+}
+
+
+
+.header-links span{
+    cursor:pointer;
+}
+
+
+
+/* Category Menu */
+
+.category-menu{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    background:white;
+    padding:12px;
+    border-top:1px solid #eee;
+}
+
+
+.category-menu button{
+    border:none;
+    background:#f5f5f5;
+    padding:10px 22px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+
+.category-menu .active{
+    background:#1f6f43;
+    color:white;
+}
+
+
+
+/* Hero Banner */
+
+
+.hero-banner{
+
+background:
+linear-gradient(
+90deg,
+rgba(0,0,0,.5),
+rgba(0,0,0,.1)
+),
+url("banner.jpg");
+
+background-size:cover;
+background-position:center;
+
+height:350px;
+
+border-radius:20px;
+
+display:flex;
+align-items:center;
+
+padding:40px;
+
+color:white;
+
+margin-top:25px;
+
+}
+
+
+
+.banner-content h1{
+
+font-size:48px;
+line-height:1.1;
+
+}
+
+
+
+.banner-content span{
+
+color:#7cff9c;
+
+}
+
+
+
+/* Shop Categories */
+
+
+.category-section{
+
+padding:40px 0;
+
+}
+
+
+.circle-categories{
+
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+
+}
+
+
+.circle-categories div{
+
+background:white;
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+font-size:35px;
+
+box-shadow:
+0 5px 20px rgba(0,0,0,.1);
+
+cursor:pointer;
+
+}
+
+
+
+.circle-categories div:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+/* Product Cards Upgrade */
+
+
+.card{
+
+border-radius:15px;
+overflow:hidden;
+
+background:white;
+
+}
+
+
+.card-swatch{
+
+border-radius:15px 15px 0 0;
+
+}
+
+
+
+.add-btn{
+
+background:#1f6f43;
+
+color:white;
+
+border:none;
+
+border-radius:25px;
+
+}
+
+
+
+.add-btn:hover{
+
+background:#155332;
+
+}
+
+
+
+/* Mobile */
+
+
+@media(max-width:720px){
+
+
+.top-bar{
+
+display:none;
+
+}
+
+
+.main-header{
+
+flex-wrap:wrap;
+
+}
+
+
+.search-box{
+
+order:3;
+
+width:100%;
+
+}
+
+
+.header-links{
+
+font-size:12px;
+
+}
+
+
+.category-menu{
+
+overflow-x:auto;
+
+justify-content:flex-start;
+
+}
+
+
+
+.banner-content h1{
+
+font-size:32px;
+
+}
+
+
+
+}
