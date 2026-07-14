@@ -1,14 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product Details</title>
+<title>Product Detail</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+margin:0;
+background:#f8f8f8;
+color:#222;
+}
+
+
+.product-page{
+
+max-width:1200px;
+margin:auto;
+padding:30px;
+
+display:flex;
+gap:40px;
+background:white;
+
+}
+
+
+/* IMAGE SECTION */
+
+.gallery{
+
+width:50%;
+display:flex;
+gap:15px;
+
+}
+
+
+.thumbnails{
+
+width:80px;
+display:flex;
+flex-direction:column;
+gap:12px;
+
+}
+
+
+.thumbnails img{
+
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+border:2px solid transparent;
+
+}
+
+
+.thumbnails img.active{
+
+border-color:#00b894;
+
+}
+
+
+
+.main-image-box{
+
+position:relative;
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+
+.main-image{
+
+width:100%;
+max-height:550px;
+object-fit:contain;
+border-radius:15px;
+
+}
+
+
+
+/* PREVIOUS NEXT */
+
+.arrow{
+
+position:absolute;
+
+top:50%;
+
+transform:translateY(-50%);
+
+background:white;
+
+border:none;
+
+font-size:30px;
+
+width:45px;
+height:45px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+box-shadow:0 2px 10px #aaa;
+
+}
+
+
+
+.prev{
+
+left:10px;
+
+}
+
+
+.next{
+
+right:10px;
+
+}
+
+
+
+/* DETAILS */
+
+
+.details{
+
+width:50%;
+
+padding:20px;
+
+}
+
+
+.details h1{
+
+font-size:32px;
+
+color:#14213d;
+
+}
+
+
+.price{
+
+font-size:30px;
+
+font-weight:bold;
+
+color:#009879;
+
+margin:20px 0;
+
+}
+
+
+
+.stock{
+
+color:green;
+
+}
+
+
+
+.quantity{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+margin:25px 0;
+
+}
+
+
+
+.quantity button{
+
+width:35px;
+
+height:35px;
+
+border:none;
+
+background:#ddd;
+
+font-size:20px;
+
+cursor:pointer;
+
+}
+
+
+
+.buy{
+
+background:#00b894;
+
+color:white;
+
+border:none;
+
+padding:15px;
+
+width:100%;
+
+font-size:18px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+.cart{
+
+background:white;
+
+border:2px solid #14213d;
+
+color:#14213d;
+
+margin-top:10px;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.product-page{
+
+display:block;
+
+padding:15px;
+
+}
+
+
+
+.gallery{
+
+width:100%;
+
+display:block;
+
+}
+
+
+
+.thumbnails{
+
+width:100%;
+
+display:flex;
+
+flex-direction:row;
+
+overflow-x:auto;
+
+margin-bottom:15px;
+
+}
+
+
+
+.main-image{
+
+height:350px;
+
+}
+
+
+
+.details{
+
+width:100%;
+
+}
+
+
+
+.details h1{
+
+font-size:24px;
+
+}
+
+
+}
+
+
+
+</style>
 
 </head>
 
@@ -16,134 +326,233 @@
 <body>
 
 
-<header class="site-header">
-
-<div class="wrap header-row">
-
-<a href="index.html" class="wordmark">
-Saad Store
-</a>
-
-</div>
-
-</header>
+<div class="product-page">
 
 
-
-<main class="product-page wrap">
-
-
-<div class="product-images">
-
-<img id="mainImage" class="product-main-image">
+<!-- IMAGE AREA -->
 
 
-<div id="thumbs" class="product-thumbs"></div>
+<div class="gallery">
+
+
+<div class="thumbnails" id="thumbs">
+
+<img src="images/product1.jpg" class="active">
+
+<img src="images/product2.jpg">
+
+<img src="images/product3.jpg">
+
+<img src="images/product4.jpg">
 
 </div>
 
 
 
-<div class="product-info">
+<div class="main-image-box">
 
 
-<h1 id="title"></h1>
-
-<h2 id="price"></h2>
+<button class="arrow prev" onclick="previousImage()">‹</button>
 
 
-<p id="description"></p>
-
-
-<p id="stock"></p>
+<img id="mainImage"
+class="main-image"
+src="images/product1.jpg">
 
 
 
-<button class="checkout-btn">
-Add To Cart
-</button>
+<button class="arrow next" onclick="nextImage()">›</button>
 
 
-<button class="checkout-btn">
+</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- DETAILS -->
+
+
+<div class="details">
+
+
+<h1>
+Red Printed 3-Piece Lawn Suit For Women
+</h1>
+
+
+<div class="stock">
+✔ 100 in stock
+</div>
+
+
+<div class="price">
+PKR 3300
+</div>
+
+
+<p>
+Premium quality fabric. Comfortable design with beautiful printing.
+Cash on Delivery available.
+</p>
+
+
+
+<div class="quantity">
+
+<button onclick="minus()">-</button>
+
+<span id="qty">
+1
+</span>
+
+<button onclick="plus()">+</button>
+
+
+</div>
+
+
+
+
+<button class="buy">
 Buy Now
 </button>
 
 
+<button class="buy cart">
+Add to Cart
+</button>
+
+
 
 </div>
 
 
-
-</main>
-
+</div>
 
 
-
-<script src="products.js"></script>
 
 
 <script>
 
 
-let url = new URLSearchParams(window.location.search);
+let images=[
 
-let productId = url.get("id");
+"images/product1.jpg",
 
+"images/product2.jpg",
 
-let product = PRODUCTS.find(
-p => p.id === productId
-);
+"images/product3.jpg",
 
+"images/product4.jpg"
 
-
-document.getElementById("title").innerHTML = product.title;
-
-
-document.getElementById("price").innerHTML = product.priceDisplay;
+];
 
 
-document.getElementById("description").innerHTML = product.description;
+let index=0;
 
 
-document.getElementById("stock").innerHTML =
-"Stock Available: " + product.stock;
+let main=document.getElementById("mainImage");
+
+let thumbs=document.querySelectorAll(".thumbnails img");
 
 
 
-let mainImage = document.getElementById("mainImage");
+function showImage(i){
 
-mainImage.src = product.images[0];
+index=i;
 
-
-
-let thumbs = document.getElementById("thumbs");
+main.src=images[index];
 
 
-product.images.forEach(img => {
+thumbs.forEach(t=>t.classList.remove("active"));
+
+thumbs[index].classList.add("active");
 
 
-let image = document.createElement("img");
+}
 
 
-image.src = img;
-
-image.width = 80;
 
 
-image.onclick = function(){
+thumbs.forEach((img,i)=>{
 
-mainImage.src = img;
+img.onclick=function(){
 
-};
+showImage(i);
 
-
-thumbs.appendChild(image);
-
+}
 
 });
 
 
+
+
+function nextImage(){
+
+index++;
+
+if(index>=images.length){
+
+index=0;
+
+}
+
+showImage(index);
+
+}
+
+
+
+function previousImage(){
+
+index--;
+
+if(index<0){
+
+index=images.length-1;
+
+}
+
+showImage(index);
+
+}
+
+
+
+let quantity=1;
+
+
+function plus(){
+
+quantity++;
+
+document.getElementById("qty").innerHTML=quantity;
+
+}
+
+
+
+function minus(){
+
+if(quantity>1){
+
+quantity--;
+
+}
+
+document.getElementById("qty").innerHTML=quantity;
+
+}
+
+
+
 </script>
+
 
 
 </body>
