@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Details</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="wrap header-row">
+
+<a href="index.html" class="wordmark">
+Saad Store
+</a>
+
+</div>
+
+</header>
+
+
+
+<main class="product-page wrap">
+
+
+<div class="product-images">
+
+<img id="mainImage" class="product-main-image">
+
+
+<div id="thumbs" class="product-thumbs"></div>
+
+</div>
+
+
+
+<div class="product-info">
+
+
+<h1 id="title"></h1>
+
+<h2 id="price"></h2>
+
+
+<p id="description"></p>
+
+
+<p id="stock"></p>
+
+
+
+<button class="checkout-btn">
+Add To Cart
+</button>
+
+
+<button class="checkout-btn">
+Buy Now
+</button>
+
+
+
+</div>
+
+
+
+</main>
+
+
+
+
+<script src="products.js"></script>
+
+
+<script>
+
+
+let url = new URLSearchParams(window.location.search);
+
+let productId = url.get("id");
+
+
+let product = PRODUCTS.find(
+p => p.id === productId
+);
+
+
+
+document.getElementById("title").innerHTML = product.title;
+
+
+document.getElementById("price").innerHTML = product.priceDisplay;
+
+
+document.getElementById("description").innerHTML = product.description;
+
+
+document.getElementById("stock").innerHTML =
+"Stock Available: " + product.stock;
+
+
+
+let mainImage = document.getElementById("mainImage");
+
+mainImage.src = product.images[0];
+
+
+
+let thumbs = document.getElementById("thumbs");
+
+
+product.images.forEach(img => {
+
+
+let image = document.createElement("img");
+
+
+image.src = img;
+
+image.width = 80;
+
+
+image.onclick = function(){
+
+mainImage.src = img;
+
+};
+
+
+thumbs.appendChild(image);
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
