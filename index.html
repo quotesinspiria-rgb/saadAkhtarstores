@@ -1,99 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The General Catalog — Handmade & Curated Goods</title>
-<meta name="description" content="Perfume, watches, and wax products — free home delivery, Cash on Delivery.">
+
+<title>Saad Store — Premium Products</title>
+
+<meta name="description" content="Perfume, Watches and Beauty Products with Cash on Delivery">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+<span>🚚 Lowest Delivery Price</span>
+
+<span>💳 Cash On Delivery</span>
+
+<span>↩️ Easy Returns</span>
+
+<span>✔ Verified Products</span>
+
+</div>
+
+
+
+
+<!-- HEADER -->
+
 <header class="site-header">
-  <div class="wrap header-row">
-    <a href="/" class="wordmark">The General Catalog</a>
-    <nav class="cat-nav">
-      <button class="cat-btn active" data-filter="all">All</button>
-      <button class="cat-btn" data-filter="perfume">Perfume</button>
-      <button class="cat-btn" data-filter="watches">Watches</button>
-      <button class="cat-btn" data-filter="wax">Wax</button>
-    </nav>
-    <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
-      Cart <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </div>
+
+
+<div class="wrap main-header">
+
+
+<a href="/" class="wordmark">
+Saad Store
+</a>
+
+
+
+<div class="search-box">
+
+<input type="text" placeholder="Search products, brands & stores">
+
+<button>
+Search
+</button>
+
+</div>
+
+
+
+
+<div class="header-links">
+
+
+<span>
+👤 Login
+</span>
+
+
+<span>
+📦 Orders
+</span>
+
+
+<span>
+♡ Wishlist
+</span>
+
+
+
+<button class="cart-toggle" id="cartToggle">
+
+🛒 Cart
+
+<span class="cart-count" id="cartCount">
+0
+</span>
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- CATEGORY MENU -->
+
+
+<div class="category-menu">
+
+
+<button class="cat-btn active" data-filter="all">
+All
+</button>
+
+
+<button class="cat-btn" data-filter="perfume">
+💄 Perfume
+</button>
+
+
+<button class="cat-btn" data-filter="watches">
+⌚ Watches
+</button>
+
+
+<button class="cat-btn" data-filter="wax">
+✨ Wax
+</button>
+
+
+
+</div>
+
+
+
 </header>
 
-<section class="hero wrap">
-  <p class="eyebrow">Catalog No. 001 — Est. 2026</p>
-  <h1>Goods worth<br>keeping a record of.</h1>
-  <p class="hero-sub">Free Home Delivery & Cash on Delivery on every order. Every item below is stocked in limited quantity — once it's stamped SOLD, it's gone.</p>
+
+
+
+
+
+<!-- HERO -->
+
+
+<section class="hero-banner wrap">
+
+
+<div class="banner-content">
+
+
+<p>
+Premium Online Shopping
+</p>
+
+
+<h1>
+
+Quality Products
+<br>
+
+Delivered To Your Door
+
+</h1>
+
+
+<p>
+
+Perfumes, Watches & Beauty Products
+
+<br>
+
+Cash on Delivery Available
+
+</p>
+
+
+</div>
+
+
+
 </section>
 
+
+
+
+
+
+
+<!-- CATEGORY -->
+
+
+<section class="category-section wrap">
+
+
+<h2>
+Shop By Category
+</h2>
+
+
+
+<div class="circle-categories">
+
+
+<div>
+💄
+<br>
+Beauty
+</div>
+
+
+<div>
+⌚
+<br>
+Watches
+</div>
+
+
+<div>
+✨
+<br>
+Wax
+</div>
+
+
+<div>
+🛍️
+<br>
+New
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- PRODUCTS -->
+
+
 <main class="wrap">
-  <div class="grid" id="productGrid"></div>
+
+
+<div class="grid" id="productGrid"></div>
+
+
 </main>
 
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
 <footer class="site-footer">
-  <div class="wrap footer-row">
-    <p>&copy; 2026 The General Catalog. Replace this with your own store name.</p>
-    <p class="footer-note">Built free, hosted free — see README.md for setup.</p>
-  </div>
+
+
+<div class="wrap footer-row">
+
+
+<p>
+© 2026 Saad Store
+</p>
+
+
+<p>
+Cash On Delivery Available
+</p>
+
+
+
+</div>
+
+
 </footer>
 
-<!-- Cart drawer -->
+
+
+
+
+
+
+<!-- CART DRAWER -->
+
+
 <div class="cart-overlay" id="cartOverlay"></div>
+
+
+
 <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
-  <div class="cart-head">
-    <h2>Your order</h2>
-    <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-foot">
-    <div class="cart-total-row">
-      <span>Subtotal</span>
-      <span id="cartSubtotal">Rs 0</span>
-    </div>
-    <p class="cart-shipping-note">Cash on Delivery — pay when your order arrives.</p>
 
-    <div class="order-form" id="orderForm">
-      <label class="form-label" for="custName">Full name</label>
-      <input class="form-input" id="custName" type="text" placeholder="Your name" required>
 
-      <label class="form-label" for="custPhone">Phone number</label>
-      <input class="form-input" id="custPhone" type="tel" placeholder="03XX XXXXXXX" required>
+<div class="cart-head">
 
-      <label class="form-label" for="custAddress">Delivery address</label>
-      <textarea class="form-input" id="custAddress" placeholder="House no, street, area, city" rows="3" required></textarea>
-    </div>
+<h2>
+Your Order
+</h2>
 
-    <button class="checkout-btn" id="checkoutBtn">Place order on WhatsApp</button>
-    <p class="checkout-error" id="checkoutError" hidden></p>
-  </div>
+
+<button class="cart-close" id="cartClose">
+×
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="cart-items" id="cartItems"></div>
+
+
+
+
+<div class="cart-foot">
+
+
+<div class="cart-total-row">
+
+<span>
+Subtotal
+</span>
+
+
+<span id="cartSubtotal">
+Rs 0
+</span>
+
+
+</div>
+
+
+
+
+<p class="cart-shipping-note">
+
+Cash on Delivery — pay when your order arrives.
+
+</p>
+
+
+
+
+
+
+<div class="order-form">
+
+
+<label class="form-label">
+Full Name
+</label>
+
+
+<input class="form-input" id="custName" placeholder="Your name">
+
+
+
+<label class="form-label">
+Phone Number
+</label>
+
+
+<input class="form-input" id="custPhone" placeholder="03XX XXXXXXX">
+
+
+
+
+
+<label class="form-label">
+Delivery Address
+</label>
+
+
+<textarea class="form-input" id="custAddress" rows="3"></textarea>
+
+
+
+</div>
+
+
+
+
+
+
+<button class="checkout-btn" id="checkoutBtn">
+
+Place Order on WhatsApp
+
+</button>
+
+
+
+<p class="checkout-error" id="checkoutError" hidden></p>
+
+
+
+</div>
+
+
+
 </aside>
 
-<!-- Product detail template -->
+
+
+
+
+
+
+<!-- PRODUCT TEMPLATE -->
+
+
 <template id="cardTemplate">
-  <article class="card">
-    <div class="card-swatch">
-      <span class="stamp-badge"><span class="stamp-price"></span></span>
-      <div class="sold-flag" hidden>Sold</div>
-    </div>
-    <div class="card-body">
-      <p class="card-eyebrow"></p>
-      <h3 class="card-title"></h3>
-      <div class="thumb-row"></div>
-      <p class="card-desc"></p>
-      <p class="card-stock"></p>
-      <button class="add-btn">Add to order</button>
-    </div>
-  </article>
+
+
+<article class="card">
+
+
+<div class="card-swatch">
+
+
+<span class="stamp-badge">
+
+<span class="stamp-price"></span>
+
+</span>
+
+
+
+<div class="sold-flag" hidden>
+
+Sold
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card-body">
+
+
+<p class="card-eyebrow"></p>
+
+
+<h3 class="card-title"></h3>
+
+
+
+<div class="thumb-row"></div>
+
+
+
+<p class="card-desc"></p>
+
+
+
+<p class="card-stock"></p>
+
+
+
+<button class="add-btn">
+
+Add To Cart
+
+</button>
+
+
+
+</div>
+
+
+
+</article>
+
+
+
 </template>
 
+
+
+
+
+
+
 <script src="products.js"></script>
+
 <script src="cart.js"></script>
+
 <script src="app.js"></script>
+
+
+
 </body>
+
 </html>
