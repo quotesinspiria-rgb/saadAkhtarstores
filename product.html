@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product Details - Saad Store</title>
+<title>Saad Store Product</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -29,6 +29,7 @@ border-radius:15px;
 }
 
 
+
 .gallery{
 
 width:50%;
@@ -38,14 +39,16 @@ gap:15px;
 }
 
 
+
 .thumbnails{
 
 width:80px;
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:10px;
 
 }
+
 
 
 .thumbnails img{
@@ -78,12 +81,6 @@ flex:1;
 
 position:relative;
 
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
 }
 
 
@@ -91,11 +88,10 @@ justify-content:center;
 .main-image{
 
 width:100%;
-max-height:500px;
+
+height:500px;
 
 object-fit:contain;
-
-border-radius:15px;
 
 }
 
@@ -109,20 +105,19 @@ top:50%;
 
 transform:translateY(-50%);
 
-width:45px;
-height:45px;
-
 border:none;
 
 background:white;
 
-border-radius:50%;
-
 font-size:30px;
 
-cursor:pointer;
+width:45px;
 
-box-shadow:0 2px 10px #aaa;
+height:45px;
+
+border-radius:50%;
+
+cursor:pointer;
 
 }
 
@@ -133,6 +128,7 @@ box-shadow:0 2px 10px #aaa;
 left:10px;
 
 }
+
 
 
 .next{
@@ -150,16 +146,10 @@ width:50%;
 }
 
 
-.details h1{
-
-font-size:34px;
-
-}
-
 
 .price{
 
-font-size:30px;
+font-size:32px;
 
 font-weight:bold;
 
@@ -175,8 +165,6 @@ margin:20px 0;
 
 color:green;
 
-font-weight:bold;
-
 }
 
 
@@ -185,11 +173,11 @@ font-weight:bold;
 
 display:flex;
 
-align-items:center;
-
 gap:20px;
 
-margin:25px 0;
+align-items:center;
+
+margin:20px 0;
 
 }
 
@@ -200,8 +188,6 @@ margin:25px 0;
 width:40px;
 
 height:40px;
-
-font-size:22px;
 
 cursor:pointer;
 
@@ -225,9 +211,9 @@ border:none;
 
 border-radius:10px;
 
-font-size:18px;
-
 cursor:pointer;
+
+font-size:17px;
 
 }
 
@@ -245,9 +231,31 @@ border:2px solid #1f6f43;
 
 
 
+.wishlist-product{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+background:white;
+
+border:1px solid #1f6f43;
+
+color:#1f6f43;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
 .features{
 
-margin-top:25px;
+margin-top:20px;
 
 line-height:2;
 
@@ -255,13 +263,59 @@ line-height:2;
 
 
 
-.cod-box{
+.related{
 
-margin-top:20px;
+max-width:1200px;
+
+margin:40px auto;
+
+}
+
+
+
+.related-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:20px;
+
+}
+
+
+
+.related-card{
+
+background:white;
 
 padding:15px;
 
-background:#f5f5f5;
+cursor:pointer;
+
+border-radius:10px;
+
+}
+
+
+
+.related-card img{
+
+width:100%;
+
+height:200px;
+
+object-fit:cover;
+
+}
+
+
+
+.review-box{
+
+background:white;
+
+padding:20px;
 
 border-radius:10px;
 
@@ -276,9 +330,8 @@ border-radius:10px;
 
 display:block;
 
-padding:20px;
-
 }
+
 
 
 .gallery,
@@ -289,32 +342,21 @@ width:100%;
 }
 
 
-.thumbnails{
 
-width:100%;
+.related-grid{
 
-flex-direction:row;
-
-overflow:auto;
-
-}
-
-
-.main-image{
-
-height:350px;
+grid-template-columns:1fr;
 
 }
 
 
 }
-
 
 
 </style>
 
-</head>
 
+</head>
 
 
 <body>
@@ -324,11 +366,7 @@ height:350px;
 <div class="product-page">
 
 
-
-<!-- GALLERY -->
-
 <div class="gallery">
-
 
 
 <div class="thumbnails" id="thumbs"></div>
@@ -346,13 +384,11 @@ height:350px;
 <img id="mainImage" class="main-image">
 
 
-
 <button class="arrow next" onclick="nextImage()">
 ›
 </button>
 
 
-
 </div>
 
 
@@ -360,9 +396,6 @@ height:350px;
 
 
 
-
-
-<!-- DETAILS -->
 
 
 <div class="details">
@@ -371,9 +404,7 @@ height:350px;
 <h1 id="productTitle"></h1>
 
 
-
 <div class="stock" id="productStock"></div>
-
 
 
 <div class="price" id="productPrice"></div>
@@ -385,7 +416,6 @@ height:350px;
 
 
 <div class="features" id="features"></div>
-
 
 
 
@@ -407,8 +437,6 @@ height:350px;
 
 
 
-
-
 <button class="buy">
 Buy Now
 </button>
@@ -421,30 +449,64 @@ Add To Cart
 
 
 
-
-
-<div class="cod-box">
-
-🚚 Cash On Delivery Available
-
-<br>
-
-↩ Easy Returns
-
-<br>
-
-✔ Verified Products
-
-</div>
+<button class="wishlist-product">
+♡ Add Wishlist
+</button>
 
 
 
 </div>
 
 
+</div>
+
+
+
+
+
+<section class="related">
+
+
+<h2>
+You May Also Like
+</h2>
+
+
+<div class="related-grid" id="relatedProducts"></div>
+
+
+</section>
+
+
+
+
+
+
+<section class="related">
+
+
+<h2>
+Customer Reviews
+</h2>
+
+
+<div class="review-box">
+
+⭐⭐⭐⭐⭐
+
+<p>
+Excellent quality product. Highly recommended.
+</p>
+
+<strong>
+Verified Customer
+</strong>
+
 
 </div>
 
+
+</section>
 
 
 
@@ -456,22 +518,25 @@ Add To Cart
 
 <script src="cart.js"></script>
 
+<script src="wishlist.js"></script>
+
 
 
 <script>
 
 
-// GET PRODUCT ID
-
-
-const params=new URLSearchParams(window.location.search);
-
-
-const id=params.get("id");
+const params =
+new URLSearchParams(window.location.search);
 
 
 
-const product=PRODUCTS.find(
+const id =
+params.get("id");
+
+
+
+const product =
+PRODUCTS.find(
 p=>p.id===id
 );
 
@@ -479,17 +544,15 @@ p=>p.id===id
 
 if(!product){
 
-document.body.innerHTML="<h1>Product Not Found</h1>";
+document.body.innerHTML=
+"<h1>Product Not Found</h1>";
 
-throw new Error("Product not found");
+throw new Error();
 
 }
 
 
 
-
-
-// DETAILS
 
 
 document.getElementById("productTitle").innerText =
@@ -514,21 +577,21 @@ product.description;
 
 
 
+
 // FEATURES
 
 
-const featureBox=document.getElementById("features");
-
-
-
-product.features.forEach(feature=>{
+product.features.forEach(f=>{
 
 
 let p=document.createElement("p");
 
-p.innerHTML="✓ "+feature;
+p.innerHTML="✓ "+f;
 
-featureBox.appendChild(p);
+
+document
+.getElementById("features")
+.appendChild(p);
 
 
 });
@@ -537,46 +600,24 @@ featureBox.appendChild(p);
 
 
 
-// IMAGE GALLERY
 
 
-
-let images=product.images;
+// IMAGES
 
 
 let current=0;
 
 
-const main=document.getElementById("mainImage");
-
-const thumbs=document.getElementById("thumbs");
-
+const main =
+document.getElementById("mainImage");
 
 
-
-function showImage(index){
-
-
-current=index;
-
-
-main.src=images[index];
-
-
-document.querySelectorAll(".thumbnails img")
-.forEach(img=>img.classList.remove("active"));
+const thumbs =
+document.getElementById("thumbs");
 
 
 
-thumbs.children[index].classList.add("active");
-
-
-}
-
-
-
-
-images.forEach((img,index)=>{
+product.images.forEach((img,index)=>{
 
 
 let image=document.createElement("img");
@@ -588,9 +629,7 @@ image.src=img;
 
 image.onclick=()=>{
 
-
 showImage(index);
-
 
 };
 
@@ -599,8 +638,31 @@ showImage(index);
 thumbs.appendChild(image);
 
 
-
 });
+
+
+
+
+function showImage(index){
+
+
+current=index;
+
+
+main.src =
+product.images[index];
+
+
+document
+.querySelectorAll(".thumbnails img")
+.forEach(x=>x.classList.remove("active"));
+
+
+thumbs.children[index]
+.classList.add("active");
+
+
+}
 
 
 
@@ -612,11 +674,10 @@ showImage(0);
 
 function nextImage(){
 
-
 current++;
 
 
-if(current>=images.length){
+if(current>=product.images.length){
 
 current=0;
 
@@ -625,30 +686,26 @@ current=0;
 
 showImage(current);
 
-
 }
 
 
 
-
-
 function previousImage(){
-
 
 current--;
 
 
 if(current<0){
 
-current=images.length-1;
+current=product.images.length-1;
 
 }
 
 
 showImage(current);
 
-
 }
+
 
 
 
@@ -658,7 +715,6 @@ showImage(current);
 // QUANTITY
 
 
-
 let quantity=1;
 
 
@@ -666,7 +722,7 @@ let quantity=1;
 function plus(){
 
 
-if(quantity < product.stock){
+if(quantity<product.stock){
 
 quantity++;
 
@@ -699,8 +755,9 @@ document.getElementById("qty").innerText=quantity;
 
 
 
-// ADD CART
 
+
+// CART
 
 
 document.querySelector(".cart")
@@ -714,7 +771,7 @@ Cart.add(product.id);
 }
 
 
-alert("Product added to cart");
+alert("Added to cart");
 
 
 };
@@ -724,9 +781,7 @@ alert("Product added to cart");
 
 
 
-
-// BUY NOW
-
+// BUY
 
 
 document.querySelector(".buy")
@@ -740,10 +795,107 @@ Cart.add(product.id);
 }
 
 
-window.location.href="index.html";
+location.href="index.html";
 
 
 };
+
+
+
+
+
+
+
+// WISHLIST
+
+
+const wish =
+document.querySelector(".wishlist-product");
+
+
+
+function updateWish(){
+
+
+wish.innerText =
+Wishlist.has(product.id)
+?
+"♥ Added To Wishlist"
+:
+"♡ Add Wishlist";
+
+
+}
+
+
+
+wish.onclick=function(){
+
+Wishlist.toggle(product.id);
+
+updateWish();
+
+};
+
+
+
+updateWish();
+
+
+
+
+
+
+
+
+// RELATED PRODUCTS
+
+
+
+const related =
+PRODUCTS.filter(p=>
+p.category===product.category &&
+p.id!==product.id
+);
+
+
+
+related.forEach(item=>{
+
+
+let card=document.createElement("div");
+
+
+card.className="related-card";
+
+
+card.innerHTML=`
+
+<img src="${item.images[0]}">
+
+<h3>${item.title}</h3>
+
+<p>${item.priceDisplay}</p>
+
+`;
+
+
+
+card.onclick=function(){
+
+location.href=
+"product.html?id="+item.id;
+
+};
+
+
+
+document
+.getElementById("relatedProducts")
+.appendChild(card);
+
+
+});
 
 
 
