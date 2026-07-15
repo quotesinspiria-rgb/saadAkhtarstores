@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Orders | Saad Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<div class="wrap main-header">
+
+<a href="index.html" class="wordmark">
+Saad Store
+</a>
+
+</div>
+
+</header>
+
+
+
+
+<main class="wrap">
+
+
+<h1>
+My Orders 📦
+</h1>
+
+
+
+<div id="ordersBox"></div>
+
+
+
+</main>
+
+
+
+
+
+<script>
+
+
+const ordersBox =
+document.getElementById("ordersBox");
+
+
+
+const orders =
+JSON.parse(
+localStorage.getItem("saad_orders")
+)
+||
+[];
+
+
+
+
+
+if(orders.length===0){
+
+
+ordersBox.innerHTML=
+`
+
+<div class="review-box">
+
+<h3>
+No Orders Yet
+</h3>
+
+
+<p>
+Your placed orders will appear here.
+</p>
+
+
+</div>
+
+`;
+
+
+
+}
+
+else{
+
+
+
+orders.reverse().forEach(order=>{
+
+
+
+let box =
+document.createElement("div");
+
+
+
+box.className="review-box";
+
+
+
+box.innerHTML=
+`
+
+<h3>
+Order #${order.id}
+</h3>
+
+
+<p>
+Date: ${order.date}
+</p>
+
+
+<p>
+${order.items}
+</p>
+
+
+<strong>
+Total: ${order.total}
+</strong>
+
+
+<br>
+
+<span>
+Status: ${order.status}
+</span>
+
+
+`;
+
+
+
+ordersBox.appendChild(box);
+
+
+
+});
+
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
