@@ -574,7 +574,54 @@ document.getElementById("productStock").innerText =
 
 document.getElementById("productDescription").innerText =
 product.description;
+// GOOGLE PRODUCT SCHEMA
 
+const schema = {
+
+"@context":"https://schema.org/",
+
+"@type":"Product",
+
+"name":product.title,
+
+"image":product.images,
+
+"description":product.description,
+
+"brand":{
+
+"@type":"Brand",
+
+"name":"Saad Store"
+
+},
+
+"offers":{
+
+"@type":"Offer",
+
+"url":window.location.href,
+
+"priceCurrency":"PKR",
+
+"price":product.priceCents / 100,
+
+"availability":
+product.stock > 0
+?
+"https://schema.org/InStock"
+:
+"https://schema.org/OutOfStock"
+
+}
+
+};
+
+
+document
+.getElementById("productSchema")
+.textContent =
+JSON.stringify(schema);
 
 
 
