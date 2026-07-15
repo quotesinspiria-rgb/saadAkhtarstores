@@ -10,16 +10,20 @@ const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
 
 const checkoutBtn = document.getElementById("checkoutBtn");
+const checkoutError = document.getElementById("checkoutError");
 
 
 
-let activeFilter = "all";
-let searchTerm = "";
+let activeFilter="all";
+let searchTerm="";
+
+
+
+const STORE_WHATSAPP_NUMBER="923064322613";
 
 
 
 
-// PRICE FORMAT
 
 function money(cents){
 
@@ -31,8 +35,10 @@ return `Rs ${Math.round(cents/100).toLocaleString("en-PK")}`;
 
 
 
+
+
 // ==========================
-// PRODUCTS RENDER
+// PRODUCTS
 // ==========================
 
 
@@ -43,23 +49,24 @@ grid.innerHTML="";
 
 
 
-const items = PRODUCTS.filter(product=>{
+const products =
+PRODUCTS.filter(product=>{
 
 
-const categoryMatch =
+let category =
 activeFilter==="all" ||
 product.category===activeFilter;
 
 
 
-const searchMatch =
+let search =
 product.title
 .toLowerCase()
 .includes(searchTerm);
 
 
 
-return categoryMatch && searchMatch;
+return category && search;
 
 
 });
@@ -68,8 +75,7 @@ return categoryMatch && searchMatch;
 
 
 
-items.forEach(product=>{
-
+products.forEach(product=>{
 
 
 const node =
@@ -77,194 +83,39 @@ cardTemplate.content.cloneNode(true);
 
 
 
-
-node.querySelector(".stamp-price").textContent =
+node.querySelector(".stamp-price").innerText =
 product.priceDisplay;
 
 
-
-node.querySelector(".card-eyebrow").textContent =
-product.category;
-
-
-
-node.querySelector(".card-title").textContent =
+node.querySelector(".card-title").innerText =
 product.title;
 
 
+node.querySelector(".card-eyebrow").innerText =
+product.category;
 
-node.querySelector(".card-desc").textContent =
+
+node.querySelector(".card-desc").innerText =
 product.description;
 
 
 
 
-// IMAGE
-
-
-const swatch =
+const image =
 node.querySelector(".card-swatch");
 
 
-if(product.images.length){
 
-
-swatch.style.backgroundImage =
+image.style.backgroundImage =
 `url("${product.images[0]}")`;
 
+image.style.backgroundSize="cover";
 
-swatch.style.backgroundSize="cover";
+image.style.backgroundPosition="center";
 
-swatch.style.backgroundPosition="center";
 
 
-}
 
-
-
-
-// WISHLIST BUTTON
-
-
-const wishBtn =
-node.querySelector(".wish-btn");
-
-
-
-if(wishBtn){
-
-
-wishBtn.innerHTML =
-Wishlist.has(product.id)
-?
-"♥"
-:
-"♡";
-
-
-
-wishBtn.onclick=function(e){
-
-
-e.stopPropagation();
-
-
-
-Wishlist.toggle(product.id);
-
-
-
-wishBtn.innerHTML =
-Wishlist.has(product.id)
-?
-"♥"
-:
-"♡";
-
-
-
-};
-
-
-}
-
-
-
-
-
-
-// THUMBNAILS
-
-
-const thumbRow =
-node.querySelector(".thumb-row");
-
-
-
-product.images.forEach((img,index)=>{
-
-
-const thumb=document.createElement("div");
-
-
-thumb.className="thumb";
-
-
-if(index===0){
-
-thumb.classList.add("active");
-
-}
-
-
-thumb.style.backgroundImage =
-`url("${img}")`;
-
-
-
-thumb.onclick=function(e){
-
-
-e.stopPropagation();
-
-
-swatch.style.backgroundImage =
-`url("${img}")`;
-
-
-
-thumbRow
-.querySelectorAll(".thumb")
-.forEach(t=>t.classList.remove("active"));
-
-
-
-thumb.classList.add("active");
-
-
-
-};
-
-
-
-thumbRow.appendChild(thumb);
-
-
-});
-
-
-
-
-
-
-
-// STOCK
-
-
-const soldOut =
-product.stock<=0;
-
-
-
-node.querySelector(".sold-flag").hidden =
-!soldOut;
-
-
-
-node.querySelector(".card-stock").textContent =
-soldOut
-?
-"Out of stock"
-:
-`${product.stock} in stock`;
-
-
-
-
-
-
-
-// ADD CART
 
 
 const addBtn =
@@ -272,13 +123,11 @@ node.querySelector(".add-btn");
 
 
 
-if(soldOut){
-
+if(product.stock<=0){
 
 addBtn.disabled=true;
 
-addBtn.textContent="Sold Out";
-
+addBtn.innerText="Sold Out";
 
 }
 
@@ -291,9 +140,7 @@ addBtn.onclick=function(e){
 e.stopPropagation();
 
 
-
 Cart.add(product.id);
-
 
 
 renderCart();
@@ -305,7 +152,6 @@ openCart();
 };
 
 
-
 }
 
 
@@ -313,20 +159,13 @@ openCart();
 
 
 
-
-// PRODUCT PAGE OPEN
-
-
 node.querySelector(".card")
 .onclick=function(){
 
-
-location.href =
+location.href=
 "product.html?id="+product.id;
 
-
 };
-
 
 
 
@@ -334,12 +173,12 @@ location.href =
 grid.appendChild(node);
 
 
-
 });
 
 
 
 }
+
 
 
 
@@ -357,21 +196,22 @@ grid.appendChild(node);
 function renderCart(){
 
 
-
 const items =
 Cart.lineItems();
 
 
 
-cartCountEl.textContent =
+cartCountEl.innerText =
 Cart.totalCount();
 
 
 
-cartSubtotalEl.textContent =
+cartSubtotalEl.innerText =
 money(
 Cart.subtotalCents()
 );
+
+
 
 
 
@@ -387,16 +227,17 @@ if(items.length===0){
 cartItemsEl.innerHTML=
 `
 <p class="cart-empty">
-Your order is empty.
-<br>
-Add something from catalog.
+
+Your cart is empty
+
 </p>
 `;
 
-
 return;
 
+
 }
+
 
 
 
@@ -404,11 +245,11 @@ cartItemsEl.innerHTML="";
 
 
 
+
 items.forEach(({product,qty})=>{
 
 
-
-const div=document.createElement("div");
+let div=document.createElement("div");
 
 
 div.className="cart-line";
@@ -420,20 +261,19 @@ div.innerHTML=`
 <div class="cart-line-swatch"
 style="
 background-image:url('${product.images[0]}');
-background-size:cover;
-">
+background-size:cover;">
 </div>
 
 
 <div class="cart-line-info">
 
 
-<span class="cart-line-title">
+<strong>
 ${product.title}
-</span>
+</strong>
 
 
-<span class="cart-line-price">
+<span>
 ${money(product.priceCents)}
 </span>
 
@@ -441,19 +281,20 @@ ${money(product.priceCents)}
 <div class="qty-row">
 
 
-<button class="qty-btn minus">
+<button class="minus">
 -
 </button>
 
 
-<span class="qty-val">
+<span>
 ${qty}
 </span>
 
 
-<button class="qty-btn plus">
+<button class="plus">
 +
 </button>
+
 
 
 <button class="remove-btn">
@@ -477,7 +318,10 @@ div.querySelector(".plus")
 
 if(qty < product.stock){
 
-Cart.setQty(product.id,qty+1);
+Cart.setQty(
+product.id,
+qty+1
+);
 
 }
 
@@ -490,17 +334,23 @@ renderCart();
 
 
 
+
 div.querySelector(".minus")
 .onclick=function(){
 
 
-Cart.setQty(product.id,qty-1);
+Cart.setQty(
+product.id,
+qty-1
+);
 
 
 renderCart();
 
 
 };
+
+
 
 
 
@@ -518,6 +368,7 @@ renderCart();
 
 
 
+
 cartItemsEl.appendChild(div);
 
 
@@ -525,8 +376,8 @@ cartItemsEl.appendChild(div);
 });
 
 
-
 }
+
 
 
 
@@ -535,48 +386,187 @@ cartItemsEl.appendChild(div);
 
 
 // ==========================
-// CART OPEN CLOSE
+// CHECKOUT WHATSAPP
 // ==========================
 
 
+checkoutBtn.onclick=function(){
 
-function openCart(){
 
 
-cartDrawer.classList.add("open");
+checkoutError.hidden=true;
 
-cartOverlay.classList.add("open");
+
+
+const name =
+document
+.getElementById("custName")
+.value.trim();
+
+
+
+const phone =
+document
+.getElementById("custPhone")
+.value.trim();
+
+
+
+const address =
+document
+.getElementById("custAddress")
+.value.trim();
+
+
+
+
+
+if(!name || !phone || !address){
+
+
+checkoutError.innerText=
+"Please complete your details";
+
+
+checkoutError.hidden=false;
+
+
+return;
+
 
 }
 
 
 
-function closeCart(){
 
 
-cartDrawer.classList.remove("open");
+const items =
+Cart.lineItems();
 
-cartOverlay.classList.remove("open");
+
+
+if(items.length===0){
+
+return;
 
 }
 
 
+
+
+
+let message=
+`🛒 *NEW ORDER - SAAD STORE*
+
+`;
+
+
+
+message+=
+`---------------------
+
+`;
+
+
+
+items.forEach(({product,qty})=>{
+
+
+message+=
+`📦 ${product.title}
+
+Quantity: ${qty}
+
+Price: ${money(product.priceCents*qty)}
+
+---------------------
+
+`;
+
+
+});
+
+
+
+
+message+=
+`
+💰 Total:
+${money(Cart.subtotalCents())}
+
+
+👤 Customer:
+${name}
+
+
+📱 Phone:
+${phone}
+
+
+📍 Address:
+${address}
+
+
+Payment:
+Cash On Delivery
+`;
+
+
+
+
+
+const url =
+"https://wa.me/"
++
+STORE_WHATSAPP_NUMBER
++
+"?text="
++
+encodeURIComponent(message);
+
+
+
+
+window.open(
+url,
+"_blank"
+);
+
+
+
+
+
+localStorage.removeItem(
+Cart.KEY
+);
 
 
 
 document
-.getElementById("cartToggle")
-.onclick=openCart;
-
+.getElementById("custName")
+.value="";
 
 
 document
-.getElementById("cartClose")
-.onclick=closeCart;
+.getElementById("custPhone")
+.value="";
+
+
+document
+.getElementById("custAddress")
+.value="";
 
 
 
-cartOverlay.onclick=closeCart;
+renderCart();
+
+closeCart();
+
+
+
+};
+
+
 
 
 
@@ -585,12 +575,12 @@ cartOverlay.onclick=closeCart;
 
 
 // ==========================
-// CATEGORY FILTER
+// FILTER
 // ==========================
 
 
-
-document.querySelectorAll(".cat-btn")
+document
+.querySelectorAll(".cat-btn")
 .forEach(btn=>{
 
 
@@ -617,7 +607,6 @@ renderGrid();
 };
 
 
-
 });
 
 
@@ -626,23 +615,18 @@ renderGrid();
 
 
 
-// ==========================
 // SEARCH
-// ==========================
 
 
-
-const searchInput =
+const search =
 document.querySelector(".search-box input");
 
 
 
-if(searchInput){
+if(search){
 
 
-searchInput.addEventListener(
-"input",
-function(){
+search.oninput=function(){
 
 
 searchTerm =
@@ -650,15 +634,59 @@ this.value
 .toLowerCase();
 
 
-
 renderGrid();
 
 
-});
-
+};
 
 
 }
+
+
+
+
+
+
+
+
+// CART DRAWER
+
+
+function openCart(){
+
+cartDrawer.classList.add("open");
+
+cartOverlay.classList.add("open");
+
+}
+
+
+
+function closeCart(){
+
+cartDrawer.classList.remove("open");
+
+cartOverlay.classList.remove("open");
+
+}
+
+
+
+
+document
+.getElementById("cartToggle")
+.onclick=openCart;
+
+
+
+document
+.getElementById("cartClose")
+.onclick=closeCart;
+
+
+
+cartOverlay.onclick=closeCart;
+
 
 
 
