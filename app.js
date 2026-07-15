@@ -1,4 +1,5 @@
 const grid = document.getElementById("productGrid");
+
 const cardTemplate = document.getElementById("cardTemplate");
 
 const cartCountEl = document.getElementById("cartCount");
@@ -9,13 +10,16 @@ const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
 
 const checkoutBtn = document.getElementById("checkoutBtn");
-const checkoutError = document.getElementById("checkoutError");
+
 
 
 let activeFilter = "all";
 let searchTerm = "";
 
 
+
+
+// PRICE FORMAT
 
 function money(cents){
 
@@ -28,7 +32,7 @@ return `Rs ${Math.round(cents/100).toLocaleString("en-PK")}`;
 
 
 // ==========================
-// PRODUCT DISPLAY
+// PRODUCTS RENDER
 // ==========================
 
 
@@ -39,16 +43,16 @@ grid.innerHTML="";
 
 
 
-let items = PRODUCTS.filter(product=>{
+const items = PRODUCTS.filter(product=>{
 
 
-let categoryMatch =
+const categoryMatch =
 activeFilter==="all" ||
 product.category===activeFilter;
 
 
 
-let searchMatch =
+const searchMatch =
 product.title
 .toLowerCase()
 .includes(searchTerm);
@@ -94,21 +98,20 @@ product.description;
 
 
 
+
+// IMAGE
+
+
 const swatch =
 node.querySelector(".card-swatch");
 
 
-
-let images =
-product.images || [];
-
-
-
-if(images.length){
+if(product.images.length){
 
 
 swatch.style.backgroundImage =
-`url("${images[0]}")`;
+`url("${product.images[0]}")`;
+
 
 swatch.style.backgroundSize="cover";
 
@@ -120,8 +123,57 @@ swatch.style.backgroundPosition="center";
 
 
 
+// WISHLIST BUTTON
 
-// thumbnails
+
+const wishBtn =
+node.querySelector(".wish-btn");
+
+
+
+if(wishBtn){
+
+
+wishBtn.innerHTML =
+Wishlist.has(product.id)
+?
+"♥"
+:
+"♡";
+
+
+
+wishBtn.onclick=function(e){
+
+
+e.stopPropagation();
+
+
+
+Wishlist.toggle(product.id);
+
+
+
+wishBtn.innerHTML =
+Wishlist.has(product.id)
+?
+"♥"
+:
+"♡";
+
+
+
+};
+
+
+}
+
+
+
+
+
+
+// THUMBNAILS
 
 
 const thumbRow =
@@ -129,15 +181,13 @@ node.querySelector(".thumb-row");
 
 
 
-images.forEach((img,index)=>{
+product.images.forEach((img,index)=>{
 
 
-let thumb=document.createElement("div");
+const thumb=document.createElement("div");
 
 
-thumb.className =
-"thumb";
-
+thumb.className="thumb";
 
 
 if(index===0){
@@ -145,7 +195,6 @@ if(index===0){
 thumb.classList.add("active");
 
 }
-
 
 
 thumb.style.backgroundImage =
@@ -164,8 +213,10 @@ swatch.style.backgroundImage =
 
 
 
-thumbRow.querySelectorAll(".thumb")
+thumbRow
+.querySelectorAll(".thumb")
 .forEach(t=>t.classList.remove("active"));
+
 
 
 thumb.classList.add("active");
@@ -177,7 +228,6 @@ thumb.classList.add("active");
 
 
 thumbRow.appendChild(thumb);
-
 
 
 });
@@ -201,7 +251,7 @@ node.querySelector(".sold-flag").hidden =
 
 
 
-node.querySelector(".card-stock").innerText =
+node.querySelector(".card-stock").textContent =
 soldOut
 ?
 "Out of stock"
@@ -213,7 +263,8 @@ soldOut
 
 
 
-// ADD BUTTON
+
+// ADD CART
 
 
 const addBtn =
@@ -226,7 +277,7 @@ if(soldOut){
 
 addBtn.disabled=true;
 
-addBtn.innerText="Sold Out";
+addBtn.textContent="Sold Out";
 
 
 }
@@ -248,9 +299,7 @@ Cart.add(product.id);
 renderCart();
 
 
-
 openCart();
-
 
 
 };
@@ -263,14 +312,16 @@ openCart();
 
 
 
-// OPEN PRODUCT
+
+
+// PRODUCT PAGE OPEN
 
 
 node.querySelector(".card")
 .onclick=function(){
 
 
-window.location.href =
+location.href =
 "product.html?id="+product.id;
 
 
@@ -303,22 +354,21 @@ grid.appendChild(node);
 // ==========================
 
 
-
 function renderCart(){
 
 
 
-let items =
+const items =
 Cart.lineItems();
 
 
 
-cartCountEl.innerText =
+cartCountEl.textContent =
 Cart.totalCount();
 
 
 
-cartSubtotalEl.innerText =
+cartSubtotalEl.textContent =
 money(
 Cart.subtotalCents()
 );
@@ -327,7 +377,6 @@ Cart.subtotalCents()
 
 checkoutBtn.disabled =
 items.length===0;
-
 
 
 
@@ -351,9 +400,7 @@ return;
 
 
 
-
 cartItemsEl.innerHTML="";
-
 
 
 
@@ -361,14 +408,14 @@ items.forEach(({product,qty})=>{
 
 
 
-let line=document.createElement("div");
+const div=document.createElement("div");
 
 
-line.className="cart-line";
+div.className="cart-line";
 
 
 
-line.innerHTML=`
+div.innerHTML=`
 
 <div class="cart-line-swatch"
 style="
@@ -380,6 +427,7 @@ background-size:cover;
 
 <div class="cart-line-info">
 
+
 <span class="cart-line-title">
 ${product.title}
 </span>
@@ -390,10 +438,10 @@ ${money(product.priceCents)}
 </span>
 
 
-
 <div class="qty-row">
 
-<button class="qty-btn dec">
+
+<button class="qty-btn minus">
 -
 </button>
 
@@ -403,7 +451,7 @@ ${qty}
 </span>
 
 
-<button class="qty-btn inc">
+<button class="qty-btn plus">
 +
 </button>
 
@@ -418,14 +466,12 @@ Remove
 
 </div>
 
-
 `;
 
 
 
 
-
-line.querySelector(".inc")
+div.querySelector(".plus")
 .onclick=function(){
 
 
@@ -444,7 +490,7 @@ renderCart();
 
 
 
-line.querySelector(".dec")
+div.querySelector(".minus")
 .onclick=function(){
 
 
@@ -458,8 +504,7 @@ renderCart();
 
 
 
-
-line.querySelector(".remove-btn")
+div.querySelector(".remove-btn")
 .onclick=function(){
 
 
@@ -473,7 +518,7 @@ renderCart();
 
 
 
-cartItemsEl.appendChild(line);
+cartItemsEl.appendChild(div);
 
 
 
@@ -489,10 +534,10 @@ cartItemsEl.appendChild(line);
 
 
 
-
 // ==========================
 // CART OPEN CLOSE
 // ==========================
+
 
 
 function openCart(){
@@ -517,6 +562,8 @@ cartOverlay.classList.remove("open");
 
 
 
+
+
 document
 .getElementById("cartToggle")
 .onclick=openCart;
@@ -537,10 +584,10 @@ cartOverlay.onclick=closeCart;
 
 
 
-
 // ==========================
 // CATEGORY FILTER
 // ==========================
+
 
 
 document.querySelectorAll(".cat-btn")
@@ -548,7 +595,6 @@ document.querySelectorAll(".cat-btn")
 
 
 btn.onclick=function(){
-
 
 
 document
@@ -560,7 +606,6 @@ document
 btn.classList.add("active");
 
 
-
 activeFilter =
 btn.dataset.filter;
 
@@ -569,13 +614,11 @@ btn.dataset.filter;
 renderGrid();
 
 
-
 };
 
 
 
 });
-
 
 
 
@@ -607,10 +650,12 @@ this.value
 .toLowerCase();
 
 
+
 renderGrid();
 
 
 });
+
 
 
 }
@@ -618,14 +663,6 @@ renderGrid();
 
 
 
-
-
-
-
-
-// ==========================
-// START
-// ==========================
 
 
 renderGrid();
