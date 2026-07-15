@@ -6,9 +6,21 @@ const PRODUCTS = [
     priceCents: 150000,
     priceDisplay: "Rs 1,500",
     stock: 15,
-    description: "A long-lasting, premium fragrance with a rich, elegant scent that stays with you all day. Comes in high-quality packaging — perfect for everyday wear or as a gift.",
-    images: ["janan-perfum.webp", "janan-perfum-2.webp", "janan-perfum-3.webp"]
+    description:
+      "A long-lasting premium fragrance with an elegant scent. Perfect for daily wear and gifting.",
+    images: [
+      "janan-perfum.webp",
+      "janan-perfum-2.webp",
+      "janan-perfum-3.webp"
+    ],
+    features: [
+      "Long lasting fragrance",
+      "Premium packaging",
+      "Suitable for daily use"
+    ]
   },
+
+
   {
     id: "gold-steel-watch",
     title: "Men's Luxurious Gold Steel Watch",
@@ -16,9 +28,21 @@ const PRODUCTS = [
     priceCents: 200000,
     priceDisplay: "Rs 2,000",
     stock: 20,
-    description: "A stylish stainless steel watch with a gold finish, built for daily wear. Durable, water-resistant design with a classic look that pairs with any outfit.",
-    images: ["gold-steel-watch.webp", "gold-steel-watch-2.webp", "gold-steel-watch-3.webp"]
+    description:
+      "Stylish stainless steel watch with a premium gold finish.",
+    images: [
+      "gold-steel-watch.webp",
+      "gold-steel-watch-2.webp",
+      "gold-steel-watch-3.webp"
+    ],
+    features: [
+      "Stainless steel body",
+      "Premium design",
+      "Comfortable strap"
+    ]
   },
+
+
   {
     id: "halawa-wax",
     title: "Halawa Wax",
@@ -26,7 +50,17 @@ const PRODUCTS = [
     priceCents: 100000,
     priceDisplay: "Rs 1,000",
     stock: 10,
-    description: "100% natural and organic hair removal wax with a soft, smooth consistency. Gentle on skin, premium quality, 225g pack.",
-    images: ["images/halawa-wax.jpg", "halawa-wax-2.jpg", "halawa-wax-3.jpg"]
+    description:
+      "Natural hair removal wax with smooth skin results.",
+    images: [
+      "images/halawa-wax.jpg",
+      "images/halawa-wax-2.jpg",
+      "images/halawa-wax-3.jpg"
+    ],
+    features: [
+      "Natural ingredients",
+      "Skin friendly",
+      "225g pack"
+    ]
   }
 ];
