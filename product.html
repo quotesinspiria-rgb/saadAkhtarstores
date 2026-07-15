@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product Detail</title>
+<title>Product Details - Saad Store</title>
+
+<link rel="stylesheet" href="style.css">
+
 
 <style>
-
-*{
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
-body{
-margin:0;
-background:#f8f8f8;
-color:#222;
-}
-
 
 .product-page{
 
 max-width:1200px;
-margin:auto;
+margin:40px auto;
 padding:30px;
 
 display:flex;
 gap:40px;
+
 background:white;
+
+border-radius:15px;
 
 }
 
-
-/* IMAGE SECTION */
 
 .gallery{
 
@@ -58,9 +52,13 @@ gap:12px;
 
 width:70px;
 height:70px;
+
 object-fit:cover;
+
 border-radius:10px;
+
 cursor:pointer;
+
 border:2px solid transparent;
 
 }
@@ -68,7 +66,7 @@ border:2px solid transparent;
 
 .thumbnails img.active{
 
-border-color:#00b894;
+border-color:#1f6f43;
 
 }
 
@@ -76,10 +74,14 @@ border-color:#00b894;
 
 .main-image-box{
 
-position:relative;
 flex:1;
+
+position:relative;
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 }
@@ -89,15 +91,15 @@ justify-content:center;
 .main-image{
 
 width:100%;
-max-height:550px;
+max-height:500px;
+
 object-fit:contain;
+
 border-radius:15px;
 
 }
 
 
-
-/* PREVIOUS NEXT */
 
 .arrow{
 
@@ -107,16 +109,16 @@ top:50%;
 
 transform:translateY(-50%);
 
-background:white;
-
-border:none;
-
-font-size:30px;
-
 width:45px;
 height:45px;
 
+border:none;
+
+background:white;
+
 border-radius:50%;
+
+font-size:30px;
 
 cursor:pointer;
 
@@ -141,23 +143,16 @@ right:10px;
 
 
 
-/* DETAILS */
-
-
 .details{
 
 width:50%;
-
-padding:20px;
 
 }
 
 
 .details h1{
 
-font-size:32px;
-
-color:#14213d;
+font-size:34px;
 
 }
 
@@ -168,7 +163,7 @@ font-size:30px;
 
 font-weight:bold;
 
-color:#009879;
+color:#1f6f43;
 
 margin:20px 0;
 
@@ -179,6 +174,8 @@ margin:20px 0;
 .stock{
 
 color:green;
+
+font-weight:bold;
 
 }
 
@@ -200,15 +197,11 @@ margin:25px 0;
 
 .quantity button{
 
-width:35px;
+width:40px;
 
-height:35px;
+height:40px;
 
-border:none;
-
-background:#ddd;
-
-font-size:20px;
+font-size:22px;
 
 cursor:pointer;
 
@@ -218,19 +211,21 @@ cursor:pointer;
 
 .buy{
 
-background:#00b894;
+width:100%;
+
+padding:15px;
+
+margin-top:10px;
+
+background:#1f6f43;
 
 color:white;
 
 border:none;
 
-padding:15px;
-
-width:100%;
+border-radius:10px;
 
 font-size:18px;
-
-border-radius:10px;
 
 cursor:pointer;
 
@@ -242,11 +237,33 @@ cursor:pointer;
 
 background:white;
 
-border:2px solid #14213d;
+color:#1f6f43;
 
-color:#14213d;
+border:2px solid #1f6f43;
 
-margin-top:10px;
+}
+
+
+
+.features{
+
+margin-top:25px;
+
+line-height:2;
+
+}
+
+
+
+.cod-box{
+
+margin-top:20px;
+
+padding:15px;
+
+background:#f5f5f5;
+
+border-radius:10px;
 
 }
 
@@ -259,46 +276,12 @@ margin-top:10px;
 
 display:block;
 
-padding:15px;
+padding:20px;
 
 }
 
 
-
-.gallery{
-
-width:100%;
-
-display:block;
-
-}
-
-
-
-.thumbnails{
-
-width:100%;
-
-display:flex;
-
-flex-direction:row;
-
-overflow-x:auto;
-
-margin-bottom:15px;
-
-}
-
-
-
-.main-image{
-
-height:350px;
-
-}
-
-
-
+.gallery,
 .details{
 
 width:100%;
@@ -306,10 +289,20 @@ width:100%;
 }
 
 
+.thumbnails{
 
-.details h1{
+width:100%;
 
-font-size:24px;
+flex-direction:row;
+
+overflow:auto;
+
+}
+
+
+.main-image{
+
+height:350px;
 
 }
 
@@ -323,49 +316,44 @@ font-size:24px;
 </head>
 
 
+
 <body>
+
 
 
 <div class="product-page">
 
 
-<!-- IMAGE AREA -->
 
+<!-- GALLERY -->
 
 <div class="gallery">
 
 
-<div class="thumbnails" id="thumbs">
 
-<img src="images/product1.jpg" class="active">
-
-<img src="images/product2.jpg">
-
-<img src="images/product3.jpg">
-
-<img src="images/product4.jpg">
-
-</div>
+<div class="thumbnails" id="thumbs"></div>
 
 
 
 <div class="main-image-box">
 
 
-<button class="arrow prev" onclick="previousImage()">‹</button>
+<button class="arrow prev" onclick="previousImage()">
+‹
+</button>
 
 
-<img id="mainImage"
-class="main-image"
-src="images/product1.jpg">
+<img id="mainImage" class="main-image">
 
 
 
-<button class="arrow next" onclick="nextImage()">›</button>
+<button class="arrow next" onclick="nextImage()">
+›
+</button>
+
 
 
 </div>
-
 
 
 </div>
@@ -380,35 +368,37 @@ src="images/product1.jpg">
 <div class="details">
 
 
-<h1>
-Red Printed 3-Piece Lawn Suit For Women
-</h1>
+<h1 id="productTitle"></h1>
 
 
-<div class="stock">
-✔ 100 in stock
-</div>
+
+<div class="stock" id="productStock"></div>
 
 
-<div class="price">
-PKR 3300
-</div>
+
+<div class="price" id="productPrice"></div>
 
 
-<p>
-Premium quality fabric. Comfortable design with beautiful printing.
-Cash on Delivery available.
-</p>
+
+<p id="productDescription"></p>
+
+
+
+<div class="features" id="features"></div>
+
 
 
 
 <div class="quantity">
 
+
 <button onclick="minus()">-</button>
+
 
 <span id="qty">
 1
 </span>
+
 
 <button onclick="plus()">+</button>
 
@@ -418,120 +408,273 @@ Cash on Delivery available.
 
 
 
+
 <button class="buy">
 Buy Now
 </button>
 
 
+
 <button class="buy cart">
-Add to Cart
+Add To Cart
 </button>
 
 
 
+
+
+<div class="cod-box">
+
+🚚 Cash On Delivery Available
+
+<br>
+
+↩ Easy Returns
+
+<br>
+
+✔ Verified Products
+
 </div>
 
 
+
 </div>
 
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="products.js"></script>
+
+<script src="cart.js"></script>
 
 
 
 <script>
 
 
-let images=[
-
-"images/product1.jpg",
-
-"images/product2.jpg",
-
-"images/product3.jpg",
-
-"images/product4.jpg"
-
-];
+// GET PRODUCT ID
 
 
-let index=0;
+const params=new URLSearchParams(window.location.search);
 
 
-let main=document.getElementById("mainImage");
-
-let thumbs=document.querySelectorAll(".thumbnails img");
+const id=params.get("id");
 
 
 
-function showImage(i){
-
-index=i;
-
-main.src=images[index];
+const product=PRODUCTS.find(
+p=>p.id===id
+);
 
 
-thumbs.forEach(t=>t.classList.remove("active"));
 
-thumbs[index].classList.add("active");
+if(!product){
 
+document.body.innerHTML="<h1>Product Not Found</h1>";
+
+throw new Error("Product not found");
 
 }
 
 
 
 
-thumbs.forEach((img,i)=>{
 
-img.onclick=function(){
+// DETAILS
 
-showImage(i);
 
-}
+document.getElementById("productTitle").innerText =
+product.title;
+
+
+
+document.getElementById("productPrice").innerText =
+product.priceDisplay;
+
+
+
+document.getElementById("productStock").innerText =
+"✔ "+product.stock+" in stock";
+
+
+
+document.getElementById("productDescription").innerText =
+product.description;
+
+
+
+
+
+// FEATURES
+
+
+const featureBox=document.getElementById("features");
+
+
+
+product.features.forEach(feature=>{
+
+
+let p=document.createElement("p");
+
+p.innerHTML="✓ "+feature;
+
+featureBox.appendChild(p);
+
 
 });
 
 
 
 
-function nextImage(){
 
-index++;
+// IMAGE GALLERY
 
-if(index>=images.length){
 
-index=0;
+
+let images=product.images;
+
+
+let current=0;
+
+
+const main=document.getElementById("mainImage");
+
+const thumbs=document.getElementById("thumbs");
+
+
+
+
+function showImage(index){
+
+
+current=index;
+
+
+main.src=images[index];
+
+
+document.querySelectorAll(".thumbnails img")
+.forEach(img=>img.classList.remove("active"));
+
+
+
+thumbs.children[index].classList.add("active");
+
 
 }
+
+
+
+
+images.forEach((img,index)=>{
+
+
+let image=document.createElement("img");
+
+
+image.src=img;
+
+
+
+image.onclick=()=>{
+
 
 showImage(index);
 
+
+};
+
+
+
+thumbs.appendChild(image);
+
+
+
+});
+
+
+
+showImage(0);
+
+
+
+
+
+function nextImage(){
+
+
+current++;
+
+
+if(current>=images.length){
+
+current=0;
+
 }
+
+
+showImage(current);
+
+
+}
+
+
 
 
 
 function previousImage(){
 
-index--;
 
-if(index<0){
+current--;
 
-index=images.length-1;
+
+if(current<0){
+
+current=images.length-1;
+
+}
+
+
+showImage(current);
+
 
 }
 
-showImage(index);
 
-}
+
+
+
+
+// QUANTITY
 
 
 
 let quantity=1;
 
 
+
 function plus(){
+
+
+if(quantity < product.stock){
 
 quantity++;
 
-document.getElementById("qty").innerHTML=quantity;
+}
+
+
+document.getElementById("qty").innerText=quantity;
+
 
 }
 
@@ -539,15 +682,68 @@ document.getElementById("qty").innerHTML=quantity;
 
 function minus(){
 
+
 if(quantity>1){
 
 quantity--;
 
 }
 
-document.getElementById("qty").innerHTML=quantity;
+
+document.getElementById("qty").innerText=quantity;
+
 
 }
+
+
+
+
+
+// ADD CART
+
+
+
+document.querySelector(".cart")
+.onclick=function(){
+
+
+for(let i=0;i<quantity;i++){
+
+Cart.add(product.id);
+
+}
+
+
+alert("Product added to cart");
+
+
+};
+
+
+
+
+
+
+
+// BUY NOW
+
+
+
+document.querySelector(".buy")
+.onclick=function(){
+
+
+for(let i=0;i<quantity;i++){
+
+Cart.add(product.id);
+
+}
+
+
+window.location.href="index.html";
+
+
+};
 
 
 
