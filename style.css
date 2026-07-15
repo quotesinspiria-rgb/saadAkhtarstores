@@ -827,3 +827,35 @@ font-size:32px;
 
 
 }
+.wish-btn{
+
+position:absolute;
+
+top:15px;
+
+left:15px;
+
+width:35px;
+
+height:35px;
+
+border-radius:50%;
+
+border:none;
+
+background:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+z-index:5;
+
+}
+
+
+.card-swatch{
+
+position:relative;
+
+}
