@@ -191,4 +191,59 @@ const PRODUCTS = [
   description: "Elegant stainless steel wrist watch.",
   images: ["images/fashion-watch-01.jpg"],
   features: ["Water Resistant", "Steel Strap", "Premium Finish"]
+,
+{
+  id: "clothing-kurta-01",
+  title: "Men's Black Kurta",
+  category: "clothing",
+  priceCents: 279900,
+  priceDisplay: "Rs 2,799",
+  stock: 20,
+  description: "Premium cotton black kurta for casual and formal wear.",
+  images: ["images/clothing-kurta-01.jpg"],
+  features: ["100% Cotton", "Soft Fabric", "Regular Fit"]
+},
+{
+  id: "clothing-shirt-01",
+  title: "Formal Office Shirt",
+  category: "clothing",
+  priceCents: 199900,
+  priceDisplay: "Rs 1,999",
+  stock: 15,
+  description: "Elegant office shirt for men.",
+  images: ["images/clothing-shirt-01.jpg"],
+  features: ["Wrinkle Free", "Premium Fabric", "Comfort Fit"]
+},
+{
+  id: "clothing-trouser-01",
+  title: "Men's Cotton Trouser",
+  category: "clothing",
+  priceCents: 169900,
+  priceDisplay: "Rs 1,699",
+  stock: 18,
+  description: "Comfortable cotton trouser for daily use.",
+  images: ["images/clothing-trouser-01.jpg"],
+  features: ["Soft Cotton", "Elastic Waist", "Premium Quality"]
+},
+{
+  id: "clothing-jacket-01",
+  title: "Winter Jacket",
+  category: "clothing",
+  priceCents: 449900,
+  priceDisplay: "Rs 4,499",
+  stock: 10,
+  description: "Warm winter jacket with stylish design.",
+  images: ["images/clothing-jacket-01.jpg"],
+  features: ["Water Resistant", "Warm", "Premium"]
+},
+{
+  id: "clothing-track-01",
+  title: "Sports Tracksuit",
+  category: "clothing",
+  priceCents: 329900,
+  priceDisplay: "Rs 3,299",
+  stock: 14,
+  description: "Comfortable tracksuit for gym and jogging.",
+  images: ["images/clothing-track-01.jpg"],
+  features: ["Breathable", "Lightweight", "Stretchable"]
 }
