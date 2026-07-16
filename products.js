@@ -246,4 +246,89 @@ const PRODUCTS = [
   description: "Comfortable tracksuit for gym and jogging.",
   images: ["images/clothing-track-01.jpg"],
   features: ["Breathable", "Lightweight", "Stretchable"]
+,
+{
+  id: "beauty-facewash-01",
+  title: "Garnier Bright Complete Face Wash",
+  category: "beauty",
+  priceCents: 89900,
+  priceDisplay: "Rs 899",
+  stock: 30,
+  description: "Brightening face wash for daily skincare.",
+  images: [
+    "images/beauty-facewash-01.jpg"
+  ],
+  features: [
+    "Vitamin C",
+    "Deep Cleansing",
+    "All Skin Types"
+  ]
+},
+{
+  id: "beauty-serum-01",
+  title: "Vitamin C Face Serum",
+  category: "beauty",
+  priceCents: 159900,
+  priceDisplay: "Rs 1,599",
+  stock: 18,
+  description: "Skin brightening serum with Vitamin C.",
+  images: [
+    "images/beauty-serum-01.jpg"
+  ],
+  features: [
+    "Glowing Skin",
+    "Anti Dark Spots",
+    "30ml"
+  ]
+},
+{
+  id: "beauty-lipstick-01",
+  title: "Matte Lipstick",
+  category: "beauty",
+  priceCents: 69900,
+  priceDisplay: "Rs 699",
+  stock: 40,
+  description: "Long lasting waterproof matte lipstick.",
+  images: [
+    "images/beauty-lipstick-01.jpg"
+  ],
+  features: [
+    "Waterproof",
+    "Matte Finish",
+    "Long Lasting"
+  ]
+},
+{
+  id: "beauty-shampoo-01",
+  title: "Herbal Shampoo",
+  category: "beauty",
+  priceCents: 119900,
+  priceDisplay: "Rs 1,199",
+  stock: 22,
+  description: "Herbal shampoo for healthy hair.",
+  images: [
+    "images/beauty-shampoo-01.jpg"
+  ],
+  features: [
+    "Anti Hair Fall",
+    "Natural Herbs",
+    "400ml"
+  ]
+},
+{
+  id: "beauty-cream-01",
+  title: "Moisturizing Face Cream",
+  category: "beauty",
+  priceCents: 99900,
+  priceDisplay: "Rs 999",
+  stock: 25,
+  description: "Daily moisturizing cream for soft skin.",
+  images: [
+    "images/beauty-cream-01.jpg"
+  ],
+  features: [
+    "24 Hour Moisture",
+    "Non Greasy",
+    "Dermatologically Tested"
+  ]
 }
