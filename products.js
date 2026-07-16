@@ -416,4 +416,89 @@ const PRODUCTS = [
     "1600 DPI",
     "Rechargeable"
   ]
+,
+{
+  id: "perfume-asad-01",
+  title: "Lattafa Asad Perfume",
+  category: "perfume",
+  priceCents: 399900,
+  priceDisplay: "Rs 3,999",
+  stock: 20,
+  description: "Premium Arabic fragrance with long lasting scent.",
+  images: [
+    "images/perfume-asad-01.jpg"
+  ],
+  features: [
+    "100ml",
+    "Long Lasting",
+    "Original Arabic Perfume"
+  ]
+},
+{
+  id: "perfume-janan-01",
+  title: "Janan Gold Perfume",
+  category: "perfume",
+  priceCents: 249900,
+  priceDisplay: "Rs 2,499",
+  stock: 18,
+  description: "Elegant fragrance for everyday use.",
+  images: [
+    "images/perfume-janan-01.jpg"
+  ],
+  features: [
+    "100ml",
+    "Premium Bottle",
+    "Fresh Fragrance"
+  ]
+},
+{
+  id: "perfume-bodyspray-01",
+  title: "Body Spray For Men",
+  category: "perfume",
+  priceCents: 89900,
+  priceDisplay: "Rs 899",
+  stock: 30,
+  description: "Refreshing body spray for daily use.",
+  images: [
+    "images/perfume-bodyspray-01.jpg"
+  ],
+  features: [
+    "Long Lasting",
+    "Fresh Scent",
+    "150ml"
+  ]
+},
+{
+  id: "perfume-attar-01",
+  title: "Oud Attar",
+  category: "perfume",
+  priceCents: 159900,
+  priceDisplay: "Rs 1,599",
+  stock: 15,
+  description: "Alcohol-free premium oud attar.",
+  images: [
+    "images/perfume-attar-01.jpg"
+  ],
+  features: [
+    "Alcohol Free",
+    "Long Lasting",
+    "12ml"
+  ]
+},
+{
+  id: "perfume-gift-01",
+  title: "Perfume Gift Set",
+  category: "perfume",
+  priceCents: 499900,
+  priceDisplay: "Rs 4,999",
+  stock: 10,
+  description: "Luxury perfume gift set for men and women.",
+  images: [
+    "images/perfume-gift-01.jpg"
+  ],
+  features: [
+    "Gift Box",
+    "Premium Collection",
+    "Best for Gifts"
+  ]
 }
