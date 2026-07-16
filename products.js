@@ -43,7 +43,7 @@ const PRODUCTS = [
   },
 
 
-  {
+ {
     id: "halawa-wax",
     title: "Halawa Wax",
     category: "wax",
@@ -62,5 +62,78 @@ const PRODUCTS = [
       "Skin friendly",
       "225g pack"
     ]
+  },
+
+  {
+    id: "mens-shirt-1",
+    title: "Men's Premium Shirt",
+    category: "fashion",
+    priceCents: 249900,
+    priceDisplay: "Rs 2,499",
+    stock: 20,
+    description: "Premium cotton casual shirt.",
+    images: [
+      "images/mens-shirt-1.jpg"
+    ],
+    features: [
+      "100% Cotton",
+      "Slim Fit",
+      "Premium Quality"
+    ]
+  },
+
+  {
+    id: "mens-shirt-2",
+    title: "Formal White Shirt",
+    category: "fashion",
+    priceCents: 279900,
+    priceDisplay: "Rs 2,799",
+    stock: 18,
+    description: "Elegant formal shirt.",
+    images: [
+      "images/mens-shirt-2.jpg"
+    ],
+    features: [
+      "Office Wear",
+      "Wrinkle Free",
+      "Soft Fabric"
+    ]
+  },
+
+  {
+    id: "mens-jeans-1",
+    title: "Blue Denim Jeans",
+    category: "fashion",
+    priceCents: 329900,
+    priceDisplay: "Rs 3,299",
+    stock: 15,
+    description: "Comfort stretch jeans.",
+    images: [
+      "images/mens-jeans.jpg"
+    ],
+    features: [
+      "Stretch",
+      "Slim Fit",
+      "Premium Denim"
+    ]
+  },
+
+  {
+    id: "black-hoodie",
+    title: "Black Hoodie",
+    category: "fashion",
+    priceCents: 349900,
+    priceDisplay: "Rs 3,499",
+    stock: 15,
+    description: "Warm winter hoodie.",
+    images: [
+      "images/black-hoodie.jpg"
+    ],
+    features: [
+      "Fleece",
+      "Winter",
+      "Soft"
+    ]
   }
+
 ];
