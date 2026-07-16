@@ -136,4 +136,59 @@ const PRODUCTS = [
     ]
   }
 
-];
+,
+{
+  id: "fashion-shirt-01",
+  title: "Men's Cotton T-Shirt",
+  category: "fashion",
+  priceCents: 149900,
+  priceDisplay: "Rs 1,499",
+  stock: 25,
+  description: "Premium cotton t-shirt for daily wear.",
+  images: ["images/fashion-shirt-01.jpg"],
+  features: ["100% Cotton", "Soft Fabric", "Regular Fit"]
+},
+{
+  id: "fashion-jeans-01",
+  title: "Blue Denim Jeans",
+  category: "fashion",
+  priceCents: 249900,
+  priceDisplay: "Rs 2,499",
+  stock: 18,
+  description: "Stretchable blue denim jeans.",
+  images: ["images/fashion-jeans-01.jpg"],
+  features: ["Slim Fit", "Premium Denim", "Comfort Wear"]
+},
+{
+  id: "fashion-hoodie-01",
+  title: "Black Hoodie",
+  category: "fashion",
+  priceCents: 299900,
+  priceDisplay: "Rs 2,999",
+  stock: 15,
+  description: "Warm fleece hoodie for winter.",
+  images: ["images/fashion-hoodie-01.jpg"],
+  features: ["Winter Wear", "Soft Fleece", "Premium Quality"]
+},
+{
+  id: "fashion-shoes-01",
+  title: "Sports Running Shoes",
+  category: "fashion",
+  priceCents: 399900,
+  priceDisplay: "Rs 3,999",
+  stock: 20,
+  description: "Comfortable lightweight running shoes.",
+  images: ["images/fashion-shoes-01.jpg"],
+  features: ["Lightweight", "Rubber Sole", "Breathable"]
+},
+{
+  id: "fashion-watch-01",
+  title: "Luxury Men's Watch",
+  category: "fashion",
+  priceCents: 349900,
+  priceDisplay: "Rs 3,499",
+  stock: 12,
+  description: "Elegant stainless steel wrist watch.",
+  images: ["images/fashion-watch-01.jpg"],
+  features: ["Water Resistant", "Steel Strap", "Premium Finish"]
+}
