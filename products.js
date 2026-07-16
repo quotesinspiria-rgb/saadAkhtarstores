@@ -331,4 +331,89 @@ const PRODUCTS = [
     "Non Greasy",
     "Dermatologically Tested"
   ]
+,
+{
+  id: "tech-airpods-01",
+  title: "Wireless AirPods Pro",
+  category: "tech",
+  priceCents: 349900,
+  priceDisplay: "Rs 3,499",
+  stock: 15,
+  description: "Premium wireless earbuds with noise cancellation.",
+  images: [
+    "images/tech-airpods-01.jpg"
+  ],
+  features: [
+    "Bluetooth 5.3",
+    "Noise Cancellation",
+    "24 Hours Battery"
+  ]
+},
+{
+  id: "tech-powerbank-01",
+  title: "20000mAh Fast Charging Power Bank",
+  category: "tech",
+  priceCents: 299900,
+  priceDisplay: "Rs 2,999",
+  stock: 18,
+  description: "High-capacity fast charging power bank.",
+  images: [
+    "images/tech-powerbank-01.jpg"
+  ],
+  features: [
+    "20000mAh",
+    "Fast Charging",
+    "Dual USB Output"
+  ]
+},
+{
+  id: "tech-smartwatch-01",
+  title: "Smart Watch Series 9",
+  category: "tech",
+  priceCents: 549900,
+  priceDisplay: "Rs 5,499",
+  stock: 12,
+  description: "Smart watch with fitness tracking and Bluetooth calling.",
+  images: [
+    "images/tech-smartwatch-01.jpg"
+  ],
+  features: [
+    "Heart Rate Monitor",
+    "Bluetooth Calling",
+    "Water Resistant"
+  ]
+},
+{
+  id: "tech-speaker-01",
+  title: "Portable Bluetooth Speaker",
+  category: "tech",
+  priceCents: 249900,
+  priceDisplay: "Rs 2,499",
+  stock: 20,
+  description: "Portable speaker with deep bass and long battery life.",
+  images: [
+    "images/tech-speaker-01.jpg"
+  ],
+  features: [
+    "Deep Bass",
+    "Bluetooth 5.0",
+    "10 Hours Playback"
+  ]
+},
+{
+  id: "tech-mouse-01",
+  title: "Wireless Gaming Mouse",
+  category: "tech",
+  priceCents: 179900,
+  priceDisplay: "Rs 1,799",
+  stock: 22,
+  description: "High precision wireless gaming mouse.",
+  images: [
+    "images/tech-mouse-01.jpg"
+  ],
+  features: [
+    "RGB Lights",
+    "1600 DPI",
+    "Rechargeable"
+  ]
 }
