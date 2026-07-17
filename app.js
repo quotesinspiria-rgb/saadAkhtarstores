@@ -696,13 +696,6 @@ cartOverlay.onclick=closeCart;
 renderGrid();
 
 renderCart();
-let slideIndex = 0;
-
-showSlides();
-
-function showSlides(){
-
-    let slides = document.getElementsByClassName("slides");
 
     for(let i=0;i<slides.length;i++){
         slides[i].style.display="none";
